@@ -3,6 +3,7 @@
 A base Unity project template designed for rapid development of mobile 3D games (Android/iOS) using the Universal Render Pipeline (URP), modern practices, and a prepared structure for AI integration (e.g., Gemini API).
 
 **Goal:** To accelerate the start of new projects by providing a pre-configured, clean, and optimized foundation.
+
 **Assembly date:** 10.04.2025.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
