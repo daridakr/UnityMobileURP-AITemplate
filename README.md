@@ -3,6 +3,7 @@
 A base Unity project template designed for rapid development of mobile 3D games (Android/iOS) using the Universal Render Pipeline (URP), modern practices, and a prepared structure for AI integration (e.g., Gemini API).
 
 **Goal:** To accelerate the start of new projects by providing a pre-configured, clean, and optimized foundation.
+**Assembly date:** 10.04.2025.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Unity Version](https://img.shields.io/badge/Unity-2022.3.23f1%20LTS-blueviolet)
@@ -21,6 +22,7 @@ A base Unity project template designed for rapid development of mobile 3D games 
     * `TextMeshPro`: For high-quality text rendering.
     * `Newtonsoft Json` (`com.unity.nuget.newtonsoft-json`): For robust JSON parsing (e.g., from APIs).
     * `Visual Studio Code Editor`: Integration configured for VS Code.
+    * `Zenject (Extenject)`: Dependency Injection framework configured.
 * **Folder Structure:** Organized structure within `Assets/_Project` for your game-specific assets and scripts (feature/system-based separation). `Editor` and `Tests` folders are at the root `Assets` level.
 * **Version Control:** Includes a `.gitignore` file configured for Unity (ignores `Library`, `Temp`, etc., but **includes** `ProjectSettings`).
 * **Editor Scripts:** Includes a basic script (`Assets/Editor/BuildTargetChecker.cs`) to remind users to switch build platforms.
@@ -79,6 +81,20 @@ This repository uses branches to provide additional functional modules on top of
 
 ---
 
+## Core Architecture: Dependency Injection (Zenject)
+
+This template utilizes **Zenject (Extenject fork)** for Dependency Injection (DI) to promote modular and testable code.
+
+* **Setup:** Zenject is included via `.unitypackage` import (see Prerequisites/Setup if missing).
+    * A `ProjectContext` prefab (located in `Assets/Resources/`) handles global, project-wide bindings.
+    * `SceneContext` components should be added to specific scenes for scene-level bindings (As it's set up in the Main scene `System/MainSceneContext`). Instead of adding `SceneContext` directly to GameObjects within each scene, this template promotes creating **prefabs** for each distinct scene context configuration (`Assets/_Project/Prefabs/Systems/Contexts/...`). Attach necessary `MonoInstaller`(s) directly to these context prefabs. To use a context in a scene, simply **add an instance of the corresponding Scene Context prefab** to that scene's hierarchy.
+    * **_Why Prefabs?_** This approach centralizes dependency configuration within prefabs (`.prefab` files). Editing dependencies involves modifying the prefab, which minimizes direct changes to scene files (`.unity`). This significantly reduces the frequency and complexity of merge conflicts in version control systems like Git, making teamwork smoother.
+* **Bindings:** Define your dependencies in Installer scripts (e.g., `MonoInstaller`, `ScriptableObjectInstaller`) located in `Assets/_Project/Scripts/DI/Installers/`. Attach these installers to the relevant `ProjectContext` or `SceneContext`.
+* **Injection:** Use the `[Inject]` attribute in your classes (constructors, fields, properties, methods) to receive dependencies managed by Zenject.
+* **Documentation:** For detailed usage, please refer to the official **Extenject (Zenject) documentation**.
+
+---
+
 ## Folder Structure Overview
 
 This template uses a structured approach within the `Assets` folder to keep things organized. Your primary workspace is the `_Project` folder.
@@ -98,7 +114,7 @@ This template uses a structured approach within the `Assets` folder to keep thin
         * `VFX`: Visual Effect assets (Particle Systems, etc.).
     * **`Physics`**: Physic Material assets.
     * **`Prefabs`**: Pre-configured GameObjects.
-        * Sub-categorized by type (e.g., `Cameras`, `Environments`, `Gameplay`, `Props`, `UI`).
+        * Sub-categorized by type (e.g., `Cameras`, `Environments`, `Gameplay`, `Props`, `Systems`, `UI`).
     * **`Scenes`**: Unity scenes.
         * `_Main`: Main gameplay scenes.
         * `_Sandbox`: Scenes for testing and prototyping.
@@ -107,7 +123,7 @@ This template uses a structured approach within the `Assets` folder to keep thin
         * `Audio`: Audio playback logic.
         * `Core`: Foundational systems (e.g., `Bootstrap`, `StateMachine`).
         * `Data`: Data handling logic.
-        * `DI`: Dependency Injection (Installers).
+        * `DI`: Dependency Injection (`Installers`).
         * `Gameplay`: Logic related to core gameplay loops.
             * `Camera`, `Player`.
         * `Networking`: Network communication logic.
