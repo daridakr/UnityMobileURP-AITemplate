@@ -25,7 +25,17 @@ A base Unity project template designed for rapid development of mobile 3D games 
     * `Zenject (Extenject)`: Dependency Injection framework configured.
 * **Folder Structure:** Organized structure within `Assets/_Project` for your game-specific assets and scripts (feature/system-based separation). `Editor` and `Tests` folders are at the root `Assets` level.
 * **Version Control:** Includes a `.gitignore` file configured for Unity (ignores `Library`, `Temp`, etc., but **includes** `ProjectSettings`).
-* **Editor Scripts:** Includes a basic script (`Assets/Editor/BuildTargetChecker.cs`) to remind users to switch build platforms.
+* **Editor Utilities Included:**
+    * `Build Target Checker`: Reminds you to switch to the correct mobile platform (Android/iOS) if the wrong one is active upon opening the project.
+    * `Scene Loader Window`: Provides a convenient editor window to quickly load scenes from your project without navigating the Project folders.
+        * **How to use:**
+            1.  Open the window via the Unity menu: `Window -> Scene Loader`.
+            2.  Click the "**Add Scene Folder**" button inside the window.
+            3.  In the pop-up panel, navigate to and select your main scenes folder (typically **`Assets/_Project/Scenes`**).
+            4.  The window will now list all `.unity` scenes found in that folder and its subfolders.
+            5.  Click the button with the scene name you want to open (it will prompt you to save current scene changes if necessary).
+    * The scripts are located in `Assets/Editor/Workflow/`.
+
 * **License:** MIT License (see `LICENSE` file).
 
 ---
@@ -133,7 +143,7 @@ This template uses a structured approach within the `Assets` folder to keep thin
         * `UI`: Logic for UI elements and windows (presenters, controllers, views).
         * `Utilities`: Common helper classes, extension methods (`Attributes`, `Constants`).
 
-* **`Editor`**: Scripts that run only within the Unity Editor (e.g., `CodeGeneration`, `DataImporters`).
+* **`Editor`**: Scripts that run only within the Unity Editor (e.g., `CodeGeneration`, `DataImporters`, `Workflow`).
 * **`Plugins`**: Third-party compiled libraries (DLLs).
 * **`Rendering`**: Contains URP pipeline assets (URP Asset, Renderer Assets).
 * **`Resources`**: *Use minimally or avoid*. Assets here are always included in builds. Prefer direct references or Addressables.
