@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI_Toolkit/Documents/GeminiExample/GeminiExampleUI.uss?fileID=7433441132597879392&amp;guid=d15322c5c2224644d804b7574c8cf953&amp;type=3#GeminiExampleUI" />
+    <ui:VisualElement name="Container" class="root-container" style="flex-grow: 1; flex-shrink: 0; align-items: stretch; flex-basis: 0; position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; justify-content: flex-start;">
+        <ui:VisualElement name="bg" class="root-container" style="flex-grow: 1; background-color: rgb(51, 51, 51); position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+        <ui:VisualElement name="response" class="root-container" style="flex-direction: column-reverse; justify-content: flex-start; align-items: stretch; margin-top: 0; margin-bottom: 0; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; margin-right: 0; margin-left: 0; -unity-text-align: upper-left;">
+            <ui:Label tabindex="-1" text="Response:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="response-output" style="flex-grow: 1; flex-shrink: 1; min-height: 100px; white-space: normal;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="input" class="root-container" style="flex-direction: column-reverse; justify-content: flex-start; align-items: stretch; margin-top: 0; margin-bottom: 0; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; margin-right: 0; margin-left: 0; -unity-text-align: upper-left;">
+            <ui:Button text="Send" parse-escape-sequences="true" display-tooltip-when-elided="true" name="send-button" style="align-items: stretch; margin-top: 5px; margin-bottom: 10px;" />
+            <ui:TextField picking-mode="Ignore" label="Prompt" value="enter here your prompt..." name="prompt-input" style="align-items: stretch; margin-bottom: 10px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="output" class="root-container" style="flex-direction: column-reverse; justify-content: flex-end; align-items: stretch; margin-top: 0; margin-bottom: 0; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; margin-right: 0; margin-left: 0; -unity-text-align: upper-left;">
+            <ui:Label tabindex="-1" text="Status:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="status-label" style="align-items: flex-start; margin-top: 5px;" />
+            <ui:Label tabindex="-1" text="Latency(ms):" parse-escape-sequences="true" display-tooltip-when-elided="true" name="latency-label" style="align-items: flex-start; margin-top: 5px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

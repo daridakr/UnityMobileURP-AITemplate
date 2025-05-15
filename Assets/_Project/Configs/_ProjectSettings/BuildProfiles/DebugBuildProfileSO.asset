@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b169852073f7c48c582386abed709c57, type: 3}
+  m_Name: DebugBuildProfileSO
+  m_EditorClassIdentifier: 
+  _buildType: 0
+  _defineSymbols: 15
+  _isDevelopmentBuild: 1
+  _buildOptions: 536871681
+  _versionIncrementMode: 0
+  _strippingLevel: 4
+  _stackTraces:
+    Log: 1
+    Warning: 1
+    Error: 1
+    Assert: 1
+    Exception: 1
+  _androidSettings:
+    _useCustomKeystore: 0
+    _buildAppBundle: 0
+  _iosSettings:
+    _developerTeamID: 

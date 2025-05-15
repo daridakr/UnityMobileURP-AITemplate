@@ -1,0 +1,22 @@
+<linker>
+    <assembly fullname="Zenject" preserve="all"/>
+
+    <assembly fullname="Newtonsoft.Json" preserve="all"/>
+
+    <assembly fullname="Assembly-CSharp">
+        <type fullname="Zenject.ZenjectManagersInstaller" preserve="all"/>
+        <namespace fullname="Core.Bootstraps" preserve="all"/>
+        <namespace fullname="Core.Coordination" preserve="all"/>
+        <namespace fullname="Core.Coordination.Scenes" preserve="all"/>
+        <namespace fullname="Core.Secrets" preserve="all"/>
+        <namespace fullname="AI.Gemini.Services" preserve="all"/>
+        <namespace fullname="AI.Gemini.UI" preserve="all"/>
+        <namespace fullname="AI.Gemini.DTO" preserve="all"/>
+        <namespace fullname="Services.Files" preserve="all"/>
+        <namespace fullname="Services.SceneLoading" preserve="all"/>
+        <namespace fullname="UI.Views" preserve="all"/>
+        
+        <namespace fullname="Test.Logging" preserve="all"/>
+        <namespace fullname="Test.Gemini" preserve="all"/> 
+    </assembly>
+</linker>
